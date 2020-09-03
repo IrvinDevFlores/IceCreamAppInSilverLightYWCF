@@ -1,0 +1,79 @@
+﻿<controls:ChildWindow x:Class="IsCreamApp.View.EmergentWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           DataContext="{Binding ProductViewModel, Mode=TwoWay, Source={ StaticResource ResourceKey=LocatorViewModel}}"
+           Width="400" Height="250" 
+           Title="Detalle de compra" Background="#00897b" BorderBrush="Black" FontFamily="Roboto">
+
+
+
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Text="Productos" Foreground="White" Margin="3" HorizontalAlignment="Center" FontSize="18" FontFamily="Roboto"/>
+
+            <ListBox Grid.Row="1" ItemsSource="{Binding ProductosEnCarrito}" Height="auto" ScrollViewer.VerticalScrollBarVisibility="Visible" FontFamily="Roboto">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ProductName}"/>
+                            <TextBlock Text=" De "/>
+                            <TextBlock Text="{Binding SelectedIngredient}"/>
+                          
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <TextBlock Grid.Column="1" Text="Cobro" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="Roboto"/>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="5">
+                    <TextBlock Text="Total: " Foreground="White" FontSize="18" FontFamily="Roboto"/>
+                    <TextBlock Text="{Binding Total}"  Foreground="White" FontSize="18" x:Name="Total" />
+                </StackPanel>
+
+                <StackPanel  Orientation="Vertical" HorizontalAlignment="Stretch" Grid.Row="1" Margin="5">
+                    <TextBlock Text="Monto a pagar: " Foreground="White" FontSize="18" FontFamily="Roboto"/>
+                    <TextBox Width="auto" x:Name="PaymentTextbox" HorizontalAlignment="Stretch" Height="auto" 
+                             TextChanged="TextBox_TextChanged" Text="{Binding Amount, Mode=TwoWay}"/>
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Stretch" Grid.Row="2" Margin="5">
+                    <TextBlock Text="Cambio: " Foreground="White" FontSize="18" />
+                    <TextBlock Text="{Binding Change}" x:Name="Cambio" Foreground="White" FontSize="18"/>
+                </StackPanel>
+            </Grid>
+          
+
+        </Grid>
+
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="3" />
+        <Button x:Name="OKButton" Content="Comprar"  Width="75" Height="23" Command="{Binding PayCommand}"
+                HorizontalAlignment="Right" Margin="0,12,80,0" Grid.Row="3" />
+    </Grid>
+</controls:ChildWindow>

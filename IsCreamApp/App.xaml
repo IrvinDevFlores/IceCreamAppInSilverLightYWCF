@@ -1,0 +1,328 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             x:Class="IsCreamApp.App" xmlns:ViewModelProduct="clr-namespace:IsCreamApp.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+  <Application.Resources>
+        <ViewModelProduct:ViewModelLocator x:Name="LocatorViewModel" />
+        <DropShadowEffect x:Key="dropShadow" BlurRadius="25" Direction="315" />
+        <Style x:Name="GenericButtonStyle" TargetType="Button" >
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="GridDeButton" Background="#C2185B">
+                            <VisualStateManager.VisualStateGroups >
+                                <VisualStateGroup x:Name="EstadosComunes">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="GridDeButton" 
+                                                                           Storyboard.TargetProperty="(Grid.Background)">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="#ff4081"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid>
+                                <Grid Name="backgroundGrid" Width="48" Height="48" Visibility="Collapsed" />
+                                <Path Data="M3.3997434,22.001989L7.9999695,26.764826 7.9999695,22.001989z M16.362266,16.640196L16.129938,16.869006 15.510936,20.33301 18.937945,19.346009 19.062141,19.223697z M5.0069956,12L15.000996,12 15.000996,14 5.0069956,14z M23.762037,9.3524799L17.787971,15.23608 20.487872,17.819603 26.379948,12.016942z M5.0069998,8L16.999958,8 16.999958,10 5.0069998,10z M26.498966,6.6569958L25.186848,7.9492459 27.804781,10.613731 29.152973,9.2859983z M5.0070003,4L16.999958,4 16.999958,6 5.0070003,6z M2.8839929,2C2.6389937,2 2.4119945,2.0930004 2.2429948,2.2620001 2.0859954,2.4189997 1.9999957,2.625 1.9999955,2.842L2.033838,20.001986 9.999958,20.001986 9.999958,28 19.113941,28C19.60094,28,19.996939,27.623,19.996939,27.16L19.996939,21.110278 19.979948,21.12701 12.976929,23.146012 14.273932,15.890005 19.996939,10.254055 19.996939,2.8400002C19.996939,2.3769999,19.60094,2,19.113941,2z M2.8839929,0L19.113941,0C20.703936,0,21.996931,1.2740002,21.996931,2.8400002L21.996931,8.2844851 26.502966,3.8469934 31.999981,9.2899985 21.996931,19.140739 21.996931,27.16C21.996931,28.726,20.703936,30,19.113941,30L8.3439753,30 0.037002087,21.399 2.3841858E-06,2.8459997C-0.00099802017,2.0939999 0.29300117,1.3850002 0.82699966,0.84899998 1.3739977,0.30200005 2.1039953,0 2.8839929,0z" Stretch="Uniform" Fill="#FFFFFFFF" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="8" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Name="ClearButton" TargetType="Button" >
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="GridDeButton" Background="#C2185B">
+                            <VisualStateManager.VisualStateGroups >
+                                <VisualStateGroup x:Name="EstadosComunes">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="GridDeButton" 
+                                                                           Storyboard.TargetProperty="(Grid.Background)">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="#ff4081"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+
+                            <Grid>
+                                <Grid Name="backgroundGrid" Width="48" Height="48" Visibility="Collapsed" />
+                                <Path Data="M19.249341,8.8055813L8.7684207,19.352768 9.2288508,19.887239C11.503907,22.560051,13.360223,25.226978,16.215853,29.606016L17.748862,28.063396 13.731004,24.020002 14.440004,23.315001 18.453667,27.354174 20.108969,25.688494 16.090999,21.645003 16.8,20.940004 20.813774,24.979271 22.470068,23.312593 18.452005,19.269007 19.161005,18.564008 23.174869,22.603373 24.830665,20.937197 20.813,16.893997 21.522,16.188996 25.535469,20.227974 27.191263,18.5618 23.173002,14.518001 23.882001,13.813 27.896066,17.852577 29.433889,16.305115C25.56372,13.737936,22.901376,11.924357,19.573092,9.0833683z M15.266593,6.7949983C14.048553,6.794998,12.903516,7.2729983,12.041489,8.1399989L8.1073624,12.099001C6.6154397,13.599596,6.3717307,15.887573,7.3753266,17.646483L7.4758306,17.814152 17.715187,7.5106986 17.578355,7.4261627C16.885004,7.0147247,16.091619,6.794998,15.266593,6.7949983z M1.4190006,0L9.3646104,7.9961039 10.622443,6.7299975C11.862483,5.4829971 13.511536,4.7949966 15.266593,4.7949967 16.91102,4.7949966 18.463159,5.3996845 19.673339,6.5027671L19.896704,6.7165616 20.235405,7.0131741C24.072914,10.354743 26.923191,12.24307 31.551891,15.310111 31.801891,15.475119 31.964893,15.745106 31.995891,16.042116 32.02589,16.340102 31.922893,16.637097 31.711895,16.850109L16.761853,31.895C16.572856,32.083996 16.317851,32.189997 16.052851,32.189997 16.017855,32.189997 15.983851,32.187998 15.948854,32.184992 15.648851,32.152994 15.377854,31.988003 15.213852,31.733992 11.559844,26.100044 9.5628369,23.222057 6.6528257,19.980076L6.6489466,19.975312 6.4562639,19.771256C4.1357303,17.18508,4.2130814,13.180658,6.6883169,10.690001L7.9547178,9.4152701 0,1.4100008z" Stretch="Uniform" Fill="#FFFFFFFF" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Name="ClearButton2" TargetType="Button" >
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="GridDeButton" Background="#C2185B">
+                            <VisualStateManager.VisualStateGroups >
+                                <VisualStateGroup x:Name="EstadosComunes">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="GridDeButton" 
+                                                                           Storyboard.TargetProperty="(Grid.Background)">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="#ff4081"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+
+                            <Grid>
+                                <Grid Name="backgroundGrid" Width="48" Height="48" Visibility="Collapsed" />
+                                <Path Data="M19.249341,8.8055813L8.7684207,19.352768 9.2288508,19.887239C11.503907,22.560051,13.360223,25.226978,16.215853,29.606016L17.748862,28.063396 13.731004,24.020002 14.440004,23.315001 18.453667,27.354174 20.108969,25.688494 16.090999,21.645003 16.8,20.940004 20.813774,24.979271 22.470068,23.312593 18.452005,19.269007 19.161005,18.564008 23.174869,22.603373 24.830665,20.937197 20.813,16.893997 21.522,16.188996 25.535469,20.227974 27.191263,18.5618 23.173002,14.518001 23.882001,13.813 27.896066,17.852577 29.433889,16.305115C25.56372,13.737936,22.901376,11.924357,19.573092,9.0833683z M15.266593,6.7949983C14.048553,6.794998,12.903516,7.2729983,12.041489,8.1399989L8.1073624,12.099001C6.6154397,13.599596,6.3717307,15.887573,7.3753266,17.646483L7.4758306,17.814152 17.715187,7.5106986 17.578355,7.4261627C16.885004,7.0147247,16.091619,6.794998,15.266593,6.7949983z M1.4190006,0L9.3646104,7.9961039 10.622443,6.7299975C11.862483,5.4829971 13.511536,4.7949966 15.266593,4.7949967 16.91102,4.7949966 18.463159,5.3996845 19.673339,6.5027671L19.896704,6.7165616 20.235405,7.0131741C24.072914,10.354743 26.923191,12.24307 31.551891,15.310111 31.801891,15.475119 31.964893,15.745106 31.995891,16.042116 32.02589,16.340102 31.922893,16.637097 31.711895,16.850109L16.761853,31.895C16.572856,32.083996 16.317851,32.189997 16.052851,32.189997 16.017855,32.189997 15.983851,32.187998 15.948854,32.184992 15.648851,32.152994 15.377854,31.988003 15.213852,31.733992 11.559844,26.100044 9.5628369,23.222057 6.6528257,19.980076L6.6489466,19.975312 6.4562639,19.771256C4.1357303,17.18508,4.2130814,13.180658,6.6883169,10.690001L7.9547178,9.4152701 0,1.4100008z" Stretch="Uniform" Fill="#FFFFFFFF" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Name="BackButton" TargetType="Button" >
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="GridDeButton" Background="#C2185B">
+                            <VisualStateManager.VisualStateGroups >
+                                <VisualStateGroup x:Name="EstadosComunes">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="GridDeButton" 
+                                                                           Storyboard.TargetProperty="(Grid.Background)">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="#e040fb"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid>
+                                <Grid Name="backgroundGrid" Width="48" Height="48" Visibility="Collapsed" />
+                                <Path Data="M11.437023,0L12.910027,1.3519993 3.6363177,11.457997 32.000037,11.457997 32.000037,13.457997 3.6290457,13.457997 12.796026,23.446989 11.322024,24.798988 0,12.461994z" Stretch="Uniform" Fill="#FFFFFFFF" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Name="MenuButtonStyle" TargetType="Button" >
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="GridDeButton" Background="Transparent">
+                            <VisualStateManager.VisualStateGroups >
+                                <VisualStateGroup x:Name="EstadosComunes">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="GridDeButton" 
+                                                                           Storyboard.TargetProperty="(Grid.Background)">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="#ff4081"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+
+                            <Grid>
+                                <Grid Name="backgroundGrid" Width="48" Height="48" Visibility="Collapsed" />
+                                <Path Data="M1.230957,19.693036L30.768982,19.693036C31.506958,19.693036,32,20.185041,32,20.923019L32,22.154038C32,22.893054,31.506958,23.384999,30.768982,23.384999L1.230957,23.384999C0.49194336,23.384999,0,22.893054,0,22.154038L0,20.923019C0,20.185041,0.49194336,19.693036,1.230957,19.693036z M1.230957,9.8470059L30.768982,9.8470059C31.506958,9.8470059,32,10.339011,32,11.076989L32,12.30801C32,13.045987,31.506958,13.53903,30.768982,13.53903L1.230957,13.53903C0.49194336,13.53903,0,13.047025,0,12.30801L0,11.076989C0,10.339011,0.49194336,9.8470059,1.230957,9.8470059z M1.230957,0L30.768982,0C31.506958,-6.3337211E-08,32,0.49298194,32,1.2309594L32,2.4619804C32,3.1999579,31.506958,3.6930011,30.768982,3.6930013L1.230957,3.6930013C0.49194336,3.6930011,0,3.1999579,0,2.4619804L0,1.2309594C0,0.49298194,0.49194336,-6.3337211E-08,1.230957,0z" Stretch="Uniform" Fill="#FFFFFFFF" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+      
+        <Style x:Name="AddToCarButtonStyle" TargetType="Button" >
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="GridDeButton" Background="#C2185B">
+                            <VisualStateManager.VisualStateGroups >
+                                <VisualStateGroup x:Name="EstadosComunes">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="GridDeButton" 
+                                                                           Storyboard.TargetProperty="(Grid.Background)">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="#ff4081"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid>
+                                <Grid Name="backgroundGrid" Width="48" Height="48" Visibility="Collapsed" />
+                                <Path Data="M21.094877,22.792003C22.790882,22.792003 24.169926,24.206005 24.169926,25.944013 24.169926,27.681989 22.790882,29.097 21.094877,29.097 19.397837,29.097 18.01684,27.681989 18.01684,25.944013 18.01684,24.206005 19.397837,22.792003 21.094877,22.792003z M6.3116889,22.792003C8.0076924,22.792003 9.386736,24.206005 9.386736,25.944013 9.386736,27.681989 8.0076924,29.097 6.3116889,29.097 4.6166621,29.097 3.2376793,27.681989 3.2376795,25.944013 3.2376793,24.206005 4.6166621,22.792003 6.3116889,22.792003z M21.100859,13.997993C20.488853,13.997993,19.97188,14.436988,19.870865,15.040992L19.457836,17.539987C19.411814,17.815012 19.490856,18.095987 19.672865,18.310007 19.866837,18.539987 20.154865,18.672006 20.460838,18.672006L20.617884,18.672006C21.219879,18.672006,21.748877,18.272012,21.90287,17.699991L21.993876,17.359994C22.157879,16.75901 22.36186,16.001991 22.585861,15.108009 22.651903,14.845985 22.59288,14.571998 22.425886,14.357002 22.249859,14.131996 21.973856,13.997993 21.684851,13.997993z M16.074801,13.997993C15.468776,13.997993,14.975789,14.491005,14.975789,15.095985L14.975789,17.724985C14.975789,18.246988 15.404811,18.672006 15.930818,18.672006 16.450783,18.672006 16.890789,18.295999 16.975813,17.777994L17.414843,15.129982C17.461842,14.846992 17.381823,14.560005 17.1978,14.341987 17.011824,14.122993 16.740824,13.997993 16.454811,13.997993z M11.085731,13.997993C10.798739,13.997993 10.528717,14.122993 10.342741,14.341987 10.158718,14.560005 10.078761,14.846992 10.125758,15.129982L10.560761,17.777994C10.645723,18.295999 11.086768,18.672006 11.60777,18.672006 12.132739,18.672006 12.561761,18.246988 12.561761,17.724008L12.561761,15.095985C12.561761,14.491005,12.068774,13.997993,11.462749,13.997993z M5.7197023,13.997993C5.4336882,13.997993 5.1686707,14.126991 4.9936805,14.353004 4.8176532,14.577003 4.7566786,14.86399 4.8266864,15.139991 5.0486741,16.027992 5.252656,16.780983 5.4147063,17.378L5.4886814,17.651987C5.649694,18.253,6.166668,18.672006,6.7437005,18.672006L7.1506877,18.672006C7.4237013,18.672006 7.6827374,18.552011 7.8607178,18.341989 8.0477314,18.121011 8.1276884,17.828989 8.0797148,17.539987L7.6657086,15.040992C7.5657316,14.436988,7.048697,13.997993,6.4366904,13.997993z M22.19389,7.0520054C21.592869,7.0520054,21.085844,7.4899941,20.984892,8.0950056L20.606836,10.384008C20.560875,10.66599 20.639856,10.953985 20.824856,11.172002 21.010893,11.389989 21.280855,11.515997 21.566868,11.515997L22.413862,11.515997C23.021902,11.515997 23.548885,11.113988 23.694883,10.539007 23.861877,9.8779951 24.019899,9.2939802 24.159916,8.7769819L24.312872,8.2110029C24.386908,7.935978 24.327887,7.6479836 24.153873,7.4209934 23.973879,7.1859775 23.698912,7.0520054 23.400873,7.0520054z M16.057833,7.0520054C15.461818,7.0520054,14.975789,7.5439797,14.975789,8.1499983L14.975789,10.416998C14.975789,11.022985,15.468776,11.515997,16.074801,11.515997L16.917828,11.515997C17.529835,11.515997,18.047846,11.077001,18.147823,10.472997L18.528809,8.1839949C18.573853,7.9059792 18.49585,7.6239968 18.313841,7.409 18.120846,7.1819797 17.837822,7.0520054 17.535816,7.0520054z M10.003748,7.0520054C9.7027188,7.0520054 9.4197569,7.1819797 9.2277384,7.409 9.0447522,7.6239968 8.9657107,7.9069863 9.0127087,8.1839949L9.393755,10.472997C9.4937325,11.077001,10.010767,11.515997,10.62375,11.515997L11.462749,11.515997C12.068774,11.515997,12.561761,11.022985,12.561761,10.416998L12.561761,8.1499983C12.561761,7.5439797,12.07677,7.0520054,11.481731,7.0520054z M3.9706586,7.0520054C3.6796399,7.0520054 3.4016824,7.1869846 3.2276693,7.4149814 3.0616517,7.6299783 3.0066584,7.9039956 3.0766666,8.1649824L3.243661,8.7819868C3.3806861,9.2890058 3.5366328,9.8589826 3.6996594,10.501989 3.8516388,11.099004 4.3826509,11.515997 4.9906898,11.515997L5.9736724,11.515997C6.2607241,11.515997 6.5306855,11.389989 6.7156854,11.172002 6.9017225,10.953985 6.9807029,10.66599 6.9346819,10.384008L6.5546728,8.0950056C6.4556723,7.4899941,5.9296656,7.0520054,5.3056961,7.0520054z M27.827927,0L30.929951,0.010986318C31.519985,0.011993528 31.999971,0.49398839 31.999971,1.0829777 31.999971,1.6729745 31.520962,2.1519786 30.931965,2.1519786L29.236939,2.1519786C28.623957,2.1519786,28.094957,2.5669874,27.948961,3.1619888L23.883911,19.759012C23.68292,20.579996,22.951895,21.154003,22.106854,21.154003L5.2977004,21.154003C4.4516821,21.154003,3.7166887,20.579996,3.5106929,19.759012L0.030611068,5.8329802C-0.045378424,5.5269805 0.021638945,5.2099939 0.21463428,4.961001 0.40964387,4.7129846 0.7016394,4.5709864 1.0166456,4.5709864L24.178898,4.5709864C24.789928,4.5709864,25.321917,4.1579915,25.473896,3.5659805L26.031946,1.3880012C26.241909,0.57098427,26.977942,1.1395787E-07,27.827927,0z" Stretch="Uniform" Fill="#FFFFFFFF" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+
+                                <TextBlock Text="Add to car" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White"/>
+                            </Grid>
+                            
+                        </Grid>
+                        
+                       
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Name="PurchaseButton" TargetType="Button" >
+            <Setter Property="Effect" Value="{StaticResource dropShadow}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="GridDeButton" Background="#C2185B">
+                            <VisualStateManager.VisualStateGroups >
+                                
+                                <VisualStateGroup x:Name="EstadosComunes">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames  Duration="0" Storyboard.TargetName="GridDeButton" 
+                                                                           Storyboard.TargetProperty="(Grid.Background)">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00"  Value="#e040fb"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+                  
+                                        </Storyboard>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed"/>
+              
+                                </VisualStateGroup>
+                                
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid>
+                                <Grid Name="backgroundGrid" Width="48" Height="48" Visibility="Collapsed" />
+                                <Path Data="M22.5,23.137129L22.5,24.936209 22.600557,24.889277C22.63755,24.869589 22.672361,24.848495 22.704987,24.825994 22.968985,24.647995 23.099983,24.388996 23.099983,24.047997 23.099983,23.864998 23.056984,23.706999 22.968985,23.572998 22.880985,23.438999 22.757986,23.316 22.601988,23.205z M32,22.256014L32,30.725019 30.117819,27.294554 30.049545,27.407818C28.259127,30.264589 25.167303,32 21.753542,32 17.428646,32 13.660738,29.208956 12.378769,25.05489 12.215773,24.52688 12.511765,23.966871 13.038754,23.804869 13.138126,23.774305 13.238482,23.759844 13.337029,23.760002 13.764064,23.760685 14.157102,24.035872 14.288723,24.46488 15.311698,27.774933 18.311625,29.999968 21.753542,29.999968 24.469507,29.999968 26.93088,28.616896 28.356913,26.339758L28.467417,26.156296 24.653046,25.702015z M21.5,19.41795L21.467058,19.431103C21.427372,19.448948 21.388996,19.46826 21.351997,19.48901 21.202997,19.571009 21.081999,19.67601 20.990999,19.80501 20.896999,19.934008 20.85,20.090008 20.85,20.272007 20.85,20.444008 20.886999,20.592007 20.956999,20.718006 21.029999,20.844006 21.134998,20.957006 21.271997,21.062006 21.306498,21.088005 21.342873,21.113819 21.381153,21.139442L21.5,21.214651z M22,16.509974C22.275999,16.509974,22.5,16.733973,22.5,17.009974L22.5,18.195152 22.640303,18.19828C23.298311,18.218185,23.787979,18.307762,24.109978,18.467012L24.109978,19.730009C23.728481,19.453508,23.250515,19.298744,22.676081,19.264374L22.5,19.25923 22.5,21.702602 22.665331,21.790737C22.860987,21.89794 23.048485,22.009502 23.226984,22.125002 23.464981,22.280003 23.673981,22.449001 23.855978,22.635 24.034977,22.822001 24.179976,23.028999 24.284975,23.255999 24.390974,23.482998 24.443974,23.741999 24.443974,24.031998 24.443974,24.421997 24.365974,24.751995 24.206976,25.019995 24.048977,25.288994 23.837978,25.506992 23.57098,25.675993 23.304983,25.843992 22.995985,25.964993 22.648987,26.040991L22.5,26.068634 22.5,27.009974C22.5,27.285973 22.275999,27.509974 22,27.509974 21.724001,27.509974 21.5,27.285973 21.5,27.009974L21.5,26.153093 21.446777,26.152117C21.33906,26.148367 21.214748,26.138992 21.072998,26.123991 20.885,26.103992 20.694,26.074991 20.496002,26.037992 20.299004,25.999992 20.114006,25.954992 19.938007,25.900991 19.762009,25.847992 19.619009,25.785992 19.512009,25.718992L19.512009,24.402996C19.631008,24.509996 19.772007,24.606997 19.934006,24.692995 20.098005,24.778996 20.270004,24.850994 20.453003,24.909994 20.635002,24.968994 20.819,25.014994 20.999998,25.046995 21.137999,25.070995 21.266998,25.086557 21.38784,25.092838L21.5,25.095835 21.5,22.629702 21.359997,22.566002C21.099998,22.426003 20.856001,22.284002 20.629002,22.141003 20.405003,21.998003 20.209005,21.840004 20.041006,21.666004 19.875008,21.492004 19.744007,21.296005 19.651009,21.078005 19.55501,20.860006 19.508009,20.604006 19.508009,20.310007 19.508009,19.948008 19.588009,19.63401 19.752008,19.36701 19.914007,19.100012 20.129005,18.880011 20.397003,18.706013 20.662001,18.533012 20.966999,18.405012 21.306997,18.320013L21.5,18.278503 21.5,17.009974C21.5,16.733973,21.724001,16.509974,22,16.509974z M22.247417,12.000017C26.572342,12.000017 30.340275,14.79102 31.622253,18.945024 31.78525,19.472025 31.489256,20.033026 30.962265,20.195026 30.863266,20.225027 30.765268,20.240026 30.667269,20.240026 30.239277,20.240026 29.844284,19.965027 29.712286,19.535027 28.689304,16.224022 25.689358,14.000019 22.247417,14.000019 19.531435,14.000019 17.070045,15.382251 15.644002,17.659199L15.532844,17.843737 19.346954,18.297985 12,21.743986 12,13.274981 13.882375,16.705797 13.951359,16.591387C15.74179,13.735402,18.833633,12.000017,22.247417,12.000017z M18,2.4140568L18,6.0309906 21.616983,6.0309906z M2,0L18.415039,0 24,5.5859985 24,9.1699829C23.347046,9.0689697,22.682007,9,22,9L22,8.0309887 16,8.0309887 16,2 2,2 2,30 11.775024,30C12.348999,30.731995,12.990967,31.406006,13.705933,32L2,32C0.89794922,32,0,31.103027,0,30L0,2C0,0.89697266,0.89794922,0,2,0z" Stretch="Uniform" Fill="#FFFFFFFF" Width="26" Height="26" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+
+                            </Grid>
+
+
+                            
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

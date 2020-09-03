@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsCreamService", "IsCreamService\IsCreamService.csproj", "{4AADF446-FA0B-4D69-B74B-62F8AC2BB2E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsCreamApp", "IsCreamApp\IsCreamApp.csproj", "{1DFE248C-6893-4DF2-952E-ADB0E6D7ABD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AADF446-FA0B-4D69-B74B-62F8AC2BB2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AADF446-FA0B-4D69-B74B-62F8AC2BB2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AADF446-FA0B-4D69-B74B-62F8AC2BB2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AADF446-FA0B-4D69-B74B-62F8AC2BB2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DFE248C-6893-4DF2-952E-ADB0E6D7ABD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DFE248C-6893-4DF2-952E-ADB0E6D7ABD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DFE248C-6893-4DF2-952E-ADB0E6D7ABD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DFE248C-6893-4DF2-952E-ADB0E6D7ABD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

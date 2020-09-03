@@ -1,0 +1,6 @@
+C:\Users\Fredy\Desktop\PartimeGenerationX\Projects\ireyes\PROYECTOS JUEVES\IsCreamService\IsCreamApp\obj\Debug\IsCreamApp.csprojResolveAssemblyReference.cache
+C:\Users\Fredy\Desktop\PartimeGenerationX\Projects\ireyes\PROYECTOS JUEVES\IsCreamService\IsCreamApp\obj\Debug\App.g.cs
+C:\Users\Fredy\Desktop\PartimeGenerationX\Projects\ireyes\PROYECTOS JUEVES\IsCreamService\IsCreamApp\obj\Debug\View\EmergentWindow.g.cs
+C:\Users\Fredy\Desktop\PartimeGenerationX\Projects\ireyes\PROYECTOS JUEVES\IsCreamService\IsCreamApp\obj\Debug\View\IsCreamView.g.cs
+C:\Users\Fredy\Desktop\PartimeGenerationX\Projects\ireyes\PROYECTOS JUEVES\IsCreamService\IsCreamApp\obj\Debug\View\SuccessPurchase.g.cs
+C:\Users\Fredy\Desktop\PartimeGenerationX\Projects\ireyes\PROYECTOS JUEVES\IsCreamService\IsCreamApp\obj\Debug\IsCreamApp.g.resources
